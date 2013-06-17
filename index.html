@@ -249,6 +249,27 @@ require('matchdep')
                 </code></pre>
             </section>
             <section>
+                <h2>Writing Basic Tasks</h2>
+                <pre><code class='coffescript'>
+# Invoke with grunt foo cool:tapir
+grunt.registerTask('foo', 'Foo description, (a, b) ->
+  grunt.log.witeln(this.name, a, b)
+
+# Prints foo cool tapir
+                </code></pre>
+            </section>
+            <section>
+                <h2>Writing Multi-tasks</h2>
+                <pre><code class='javascript'>
+grunt.registerMultiTask('mytask', 'task description', function() {
+  // Iterate over all specified file groups.
+  this.files.forEach(function(f) {
+    // Do something with file
+  }
+});
+                </code></pre>
+            </section>
+            <section>
                 <h1>Files</h1>
                 Multitasks supports many files formats
             </section>
@@ -399,8 +420,8 @@ require('matchdep')
             <section>
               <h2><code>watch</code> and <code>livereload</code></h2>
               <ul>
-                <li><code>grunt-contrib-requirejs</code></li>
-                <li><code>grunt-contrib-jshint</code></li>
+                <li><code>grunt-contrib-watch</code></li>
+                <li><code>grunt-contrib-livereload</code></li>
               </ul>
               <pre><code class='javascript'>grunt.initConfig({
   watch: {
