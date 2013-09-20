@@ -269,6 +269,23 @@ grunt.registerMultiTask('mytask', 'task description', function() {
 });
                 </code></pre>
             </section>
+
+            <section>
+                <h2>Async Tasks</h2>
+                <pre><code class='javascript'>
+grunt.registerTask('asyncfoo', 'My "asyncfoo" task.', function() {
+  // Grab a handle to the "done" function.
+  var done = this.async();
+  // Run some sync stuff.
+  grunt.log.writeln('Processing task...');
+  // And some async stuff.
+  setTimeout(function() {
+    grunt.log.writeln('All done!');
+    done();
+  }, 1000);
+});
+                </code></pre>
+            </section>
             <section>
                 <h1>Files</h1>
                 Multitasks supports many files formats
